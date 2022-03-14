@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace LibrarySimulation
 {
-    public partial class UcInfo : UserControl
+    public partial class UcBook : UserControl
     {
-        public UcInfo()
+        public UcBook()
         {
             InitializeComponent();
-        }
-
-        private void picGitHub_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://github.com/ZeyMer1309");
         }
     }
 }

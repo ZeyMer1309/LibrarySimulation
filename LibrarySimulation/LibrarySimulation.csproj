@@ -60,6 +60,36 @@
     <Compile Include="Screens\UcInfo.Designer.cs">
       <DependentUpon>UcInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\UcBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcBook.Designer.cs">
+      <DependentUpon>UcBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UcAuthor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcAuthor.Designer.cs">
+      <DependentUpon>UcAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UcCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcCategory.Designer.cs">
+      <DependentUpon>UcCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UcUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcUser.Designer.cs">
+      <DependentUpon>UcUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UcTakeBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcTakeBook.Designer.cs">
+      <DependentUpon>UcTakeBook.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +105,21 @@
     </Compile>
     <EmbeddedResource Include="Screens\UcInfo.resx">
       <DependentUpon>UcInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcBook.resx">
+      <DependentUpon>UcBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcAuthor.resx">
+      <DependentUpon>UcAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcCategory.resx">
+      <DependentUpon>UcCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcUser.resx">
+      <DependentUpon>UcUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcTakeBook.resx">
+      <DependentUpon>UcTakeBook.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

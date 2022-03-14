@@ -47,6 +47,11 @@ namespace LibrarySimulation
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.pnlWinBarLine = new System.Windows.Forms.Panel();
             this.ucInfo = new LibrarySimulation.UcInfo();
+            this.ucUser = new LibrarySimulation.UcUser();
+            this.ucTakeBook = new LibrarySimulation.UcTakeBook();
+            this.ucCategory = new LibrarySimulation.UcCategory();
+            this.ucBook = new LibrarySimulation.UcBook();
+            this.ucAuthor = new LibrarySimulation.UcAuthor();
             this.pnlMain.SuspendLayout();
             this.pnlViewer.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
@@ -70,6 +75,11 @@ namespace LibrarySimulation
             // pnlViewer
             // 
             this.pnlViewer.Controls.Add(this.ucInfo);
+            this.pnlViewer.Controls.Add(this.ucAuthor);
+            this.pnlViewer.Controls.Add(this.ucBook);
+            this.pnlViewer.Controls.Add(this.ucCategory);
+            this.pnlViewer.Controls.Add(this.ucTakeBook);
+            this.pnlViewer.Controls.Add(this.ucUser);
             this.pnlViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlViewer.Location = new System.Drawing.Point(241, 70);
             this.pnlViewer.Name = "pnlViewer";
@@ -110,6 +120,7 @@ namespace LibrarySimulation
             this.btnTakeBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTakeBook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTakeBook.UseVisualStyleBackColor = true;
+            this.btnTakeBook.Click += new System.EventHandler(this.ButtonClick);
             // 
             // btnUser
             // 
@@ -129,6 +140,7 @@ namespace LibrarySimulation
             this.btnUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.ButtonClick);
             // 
             // btnCategory
             // 
@@ -148,6 +160,7 @@ namespace LibrarySimulation
             this.btnCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.ButtonClick);
             // 
             // btnAuthor
             // 
@@ -167,6 +180,7 @@ namespace LibrarySimulation
             this.btnAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAuthor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAuthor.UseVisualStyleBackColor = true;
+            this.btnAuthor.Click += new System.EventHandler(this.ButtonClick);
             // 
             // btnBook
             // 
@@ -186,6 +200,7 @@ namespace LibrarySimulation
             this.btnBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBook.UseVisualStyleBackColor = true;
+            this.btnBook.Click += new System.EventHandler(this.ButtonClick);
             // 
             // btnInfo
             // 
@@ -205,6 +220,7 @@ namespace LibrarySimulation
             this.btnInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.ButtonClick);
             // 
             // pnlSidebarLine
             // 
@@ -300,10 +316,51 @@ namespace LibrarySimulation
             // ucInfo
             // 
             this.ucInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ucInfo.Location = new System.Drawing.Point(0, 0);
             this.ucInfo.Name = "ucInfo";
             this.ucInfo.Size = new System.Drawing.Size(845, 543);
             this.ucInfo.TabIndex = 0;
+            // 
+            // ucUser
+            // 
+            this.ucUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucUser.Location = new System.Drawing.Point(0, 0);
+            this.ucUser.Name = "ucUser";
+            this.ucUser.Size = new System.Drawing.Size(845, 543);
+            this.ucUser.TabIndex = 1;
+            // 
+            // ucTakeBook
+            // 
+            this.ucTakeBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTakeBook.Location = new System.Drawing.Point(0, 0);
+            this.ucTakeBook.Name = "ucTakeBook";
+            this.ucTakeBook.Size = new System.Drawing.Size(845, 543);
+            this.ucTakeBook.TabIndex = 2;
+            // 
+            // ucCategory
+            // 
+            this.ucCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCategory.Location = new System.Drawing.Point(0, 0);
+            this.ucCategory.Name = "ucCategory";
+            this.ucCategory.Size = new System.Drawing.Size(845, 543);
+            this.ucCategory.TabIndex = 3;
+            // 
+            // ucBook
+            // 
+            this.ucBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucBook.Location = new System.Drawing.Point(0, 0);
+            this.ucBook.Name = "ucBook";
+            this.ucBook.Size = new System.Drawing.Size(845, 543);
+            this.ucBook.TabIndex = 4;
+            // 
+            // ucAuthor
+            // 
+            this.ucAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucAuthor.Location = new System.Drawing.Point(0, 0);
+            this.ucAuthor.Name = "ucAuthor";
+            this.ucAuthor.Size = new System.Drawing.Size(845, 543);
+            this.ucAuthor.TabIndex = 5;
             // 
             // FrmMain
             // 
@@ -350,6 +407,11 @@ namespace LibrarySimulation
         private System.Windows.Forms.Button btnBook;
         private System.Windows.Forms.Panel pnlViewer;
         private UcInfo ucInfo;
+        private UcAuthor ucAuthor;
+        private UcBook ucBook;
+        private UcCategory ucCategory;
+        private UcTakeBook ucTakeBook;
+        private UcUser ucUser;
     }
 }
 

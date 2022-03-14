@@ -38,9 +38,9 @@ namespace LibrarySimulation
         }
         #endregion
         #region Re-Coloring
-        private void Coloring(PictureBox sender, Color color)
+        private Bitmap ImageColoring (Image img, Color color)
         {
-            Bitmap bmp = new Bitmap (sender.Image);
+            Bitmap bmp = new Bitmap(img);
 
             int width = bmp.Width;
             int height = bmp.Height;
@@ -62,33 +62,12 @@ namespace LibrarySimulation
                 }
             }
 
-            sender.Image = coloredBmp;
+            return coloredBmp;
         }
+
         private void Coloring(Button sender, Color color)
         {
-            Bitmap bmp = new Bitmap(sender.Image);
-
-            int width = bmp.Width;
-            int height = bmp.Height;
-
-            Bitmap coloredBmp = new Bitmap(bmp);
-
-            for (int y = 0; y < height; y++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    Color p = bmp.GetPixel(x, y);
-
-                    int a = p.A; // A (alpha) değeri şeffaflık durumunu tutar.
-                    int r = p.R;
-                    int g = p.G;
-                    int b = p.B;
-
-                    coloredBmp.SetPixel(x, y, Color.FromArgb(a, color));
-                }
-            }
-
-            sender.Image = coloredBmp;
+            sender.Image = ImageColoring(sender.Image, color);
         }
         #endregion
         #region Exit and Minimize Button
@@ -99,7 +78,7 @@ namespace LibrarySimulation
 
         private void picExit_MouseHover(object sender, EventArgs e)
         {
-            Coloring(picExit, Color.Red);
+            picExit.Image = ImageColoring(picExit.Image, Color.Red);
         }
 
         private void picMinimize_Click(object sender, EventArgs e)
@@ -109,22 +88,72 @@ namespace LibrarySimulation
 
         private void picMinimize_MouseHover(object sender, EventArgs e)
         {
-            Coloring(picMinimize, Color.LightSeaGreen);
+            picMinimize.Image = ImageColoring(picMinimize.Image, Color.LightSeaGreen);
         }
 
         private void pic_MouseLeave(object sender, EventArgs e)
         {
             PictureBox pictureBox = (PictureBox)sender;
-            Coloring(pictureBox, Color.White);
+            pictureBox.Image = ImageColoring(pictureBox.Image, Color.White);
         }
         #endregion
         #region Form and Buttons
-
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Coloring(btnInfo, Color.Gold);
         }
+        private void ColorOff()
+        {
+            Coloring(btnInfo, Color.White);
+            Coloring(btnBook, Color.White);
+            Coloring(btnAuthor, Color.White);
+            Coloring(btnCategory, Color.White);
+            Coloring(btnUser, Color.White);
+            Coloring(btnTakeBook, Color.White);
 
+            btnInfo.ForeColor = Color.White;
+            btnBook.ForeColor = Color.White;
+            btnAuthor.ForeColor = Color.White;
+            btnCategory.ForeColor = Color.White;
+            btnUser.ForeColor = Color.White;
+            btnTakeBook.ForeColor = Color.White;
+        }
+
+        private void ButtonClick(object sender, EventArgs e)
+        {
+            ColorOff();
+            Button button = (Button)sender;
+            button.ForeColor = Color.Gold;
+            Coloring(button, Color.Gold);
+
+            switch (button.Name)
+            {
+                case "btnInfo":
+                    ucInfo.BringToFront();
+
+                    break;
+                case "btnBook":
+                    ucBook.BringToFront();
+
+                    break;
+                case "btnAuthor":
+                    ucAuthor.BringToFront();
+
+                    break;
+                case "btnCategory":
+                    ucCategory.BringToFront();
+
+                    break;
+                case "btnUser":
+                    ucUser.BringToFront();
+
+                    break;
+                case "btnTakeBook":
+                    ucTakeBook.BringToFront();
+
+                    break;
+            }
+        }
         #endregion
 
         public FrmMain()
