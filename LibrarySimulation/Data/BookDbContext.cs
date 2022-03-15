@@ -25,6 +25,8 @@ namespace LibrarySimulation.Data
             modelBuilder.Entity<Book>().Property(x => x.Name)
                                        .IsRequired()
                                        .HasMaxLength(250);
+
+
         }
     }
 }
