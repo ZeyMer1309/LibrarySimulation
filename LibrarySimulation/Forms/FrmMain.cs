@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySimulation.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -101,6 +102,19 @@ namespace LibrarySimulation
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Coloring(btnInfo, Color.Gold);
+
+            BookDbContext bookDbContext = new BookDbContext();
+            var isCreated = bookDbContext.Database.EnsureCreated();
+
+            //MessageBox.Show(isCreated ? "Veritabanı kuruldu" : "Veritabanı başarısız");
+
+            if (isCreated)
+            {
+                ucBook.dgvBookList.DataSource = bookDbContext.Books.ToList();
+                ucAuthor.dgvAuthorList.DataSource = bookDbContext.Authors.ToList();
+                ucCategory.dgvCategoryList.DataSource = bookDbContext.Categories.ToList();
+                ucUser.dgvUserList.DataSource = bookDbContext.Users.ToList();
+            }
         }
         private void ColorOff()
         {
@@ -160,7 +174,5 @@ namespace LibrarySimulation
         {
             InitializeComponent();
         }
-
-        
     }
 }

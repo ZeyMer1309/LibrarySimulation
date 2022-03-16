@@ -105,10 +105,10 @@ namespace LibrarySimulation
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvUserList;
-        private System.Windows.Forms.TextBox tbxUserName;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.DateTimePicker dtpCreationDate;
-        private System.Windows.Forms.Label lblCreationDate;
+        public System.Windows.Forms.DataGridView dgvUserList;
+        public System.Windows.Forms.TextBox tbxUserName;
+        public System.Windows.Forms.Label lblUserName;
+        public System.Windows.Forms.DateTimePicker dtpCreationDate;
+        public System.Windows.Forms.Label lblCreationDate;
     }
 }

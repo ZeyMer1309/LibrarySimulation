@@ -12,6 +12,6 @@ namespace LibrarySimulation.Models
         public string Name { get; set; }
 
 
-        public List<Book> Books { get; set; }
+        public List<CategoriesBooks> Books { get; set; }
     }
 }

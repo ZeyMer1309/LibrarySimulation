@@ -18,12 +18,11 @@ namespace LibrarySimulation.Models
 
 
         public Author Author { get; set; }
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
 
 
-        public List<User> Users { get; set; }
+        public ICollection<UsersBooks> Users { get; set; }
 
-
-        public List<Category> Categories { get; set; }
+        public ICollection<CategoriesBooks> Categories { get; set; }
     }
 }

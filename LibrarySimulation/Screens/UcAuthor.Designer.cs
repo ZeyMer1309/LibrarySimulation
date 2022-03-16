@@ -106,10 +106,10 @@ namespace LibrarySimulation
 
         #endregion
 
-        private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.TextBox tbxUserName;
-        private System.Windows.Forms.DataGridView dgvAuthorList;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label lblInfo;
+        public System.Windows.Forms.Label lblUserName;
+        public System.Windows.Forms.TextBox tbxUserName;
+        public System.Windows.Forms.DataGridView dgvAuthorList;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

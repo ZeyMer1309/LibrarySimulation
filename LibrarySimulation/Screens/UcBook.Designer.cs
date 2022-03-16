@@ -33,10 +33,10 @@ namespace LibrarySimulation
             this.dtpCreationDate = new System.Windows.Forms.DateTimePicker();
             this.lblBookName = new System.Windows.Forms.Label();
             this.tbxUserName = new System.Windows.Forms.TextBox();
-            this.dgvUserList = new System.Windows.Forms.DataGridView();
+            this.dgvBookList = new System.Windows.Forms.DataGridView();
             this.lblPageCount = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             this.SuspendLayout();
             // 
             // lblYear
@@ -77,15 +77,15 @@ namespace LibrarySimulation
             this.tbxUserName.Size = new System.Drawing.Size(273, 27);
             this.tbxUserName.TabIndex = 6;
             // 
-            // dgvUserList
+            // dgvBookList
             // 
-            this.dgvUserList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUserList.GridColor = System.Drawing.Color.White;
-            this.dgvUserList.Location = new System.Drawing.Point(47, 53);
-            this.dgvUserList.Name = "dgvUserList";
-            this.dgvUserList.Size = new System.Drawing.Size(641, 298);
-            this.dgvUserList.TabIndex = 5;
+            this.dgvBookList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBookList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBookList.GridColor = System.Drawing.Color.White;
+            this.dgvBookList.Location = new System.Drawing.Point(47, 53);
+            this.dgvBookList.Name = "dgvBookList";
+            this.dgvBookList.Size = new System.Drawing.Size(641, 298);
+            this.dgvBookList.TabIndex = 5;
             // 
             // lblPageCount
             // 
@@ -117,10 +117,10 @@ namespace LibrarySimulation
             this.Controls.Add(this.dtpCreationDate);
             this.Controls.Add(this.lblBookName);
             this.Controls.Add(this.tbxUserName);
-            this.Controls.Add(this.dgvUserList);
+            this.Controls.Add(this.dgvBookList);
             this.Name = "UcBook";
             this.Size = new System.Drawing.Size(845, 543);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUserList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,12 +128,12 @@ namespace LibrarySimulation
 
         #endregion
 
-        private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.DateTimePicker dtpCreationDate;
-        private System.Windows.Forms.Label lblBookName;
-        private System.Windows.Forms.TextBox tbxUserName;
-        private System.Windows.Forms.DataGridView dgvUserList;
-        private System.Windows.Forms.Label lblPageCount;
-        private System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label lblYear;
+        public System.Windows.Forms.DateTimePicker dtpCreationDate;
+        public System.Windows.Forms.Label lblBookName;
+        public System.Windows.Forms.TextBox tbxUserName;
+        public System.Windows.Forms.DataGridView dgvBookList;
+        public System.Windows.Forms.Label lblPageCount;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

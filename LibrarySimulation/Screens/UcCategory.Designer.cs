@@ -81,8 +81,9 @@ namespace LibrarySimulation
         }
 
         #endregion
-        private System.Windows.Forms.Label lblCategoryName;
-        private System.Windows.Forms.TextBox tbxUserName;
-        private System.Windows.Forms.DataGridView dgvCategoryList;
+
+        public System.Windows.Forms.Label lblCategoryName;
+        public System.Windows.Forms.TextBox tbxUserName;
+        public System.Windows.Forms.DataGridView dgvCategoryList;
     }
 }

@@ -32,6 +32,12 @@ namespace LibrarySimulation
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlViewer = new System.Windows.Forms.Panel();
+            this.ucInfo = new LibrarySimulation.UcInfo();
+            this.ucAuthor = new LibrarySimulation.UcAuthor();
+            this.ucBook = new LibrarySimulation.UcBook();
+            this.ucCategory = new LibrarySimulation.UcCategory();
+            this.ucTakeBook = new LibrarySimulation.UcTakeBook();
+            this.ucUser = new LibrarySimulation.UcUser();
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnTakeBook = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
@@ -46,12 +52,6 @@ namespace LibrarySimulation
             this.lblTitle = new System.Windows.Forms.Label();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.pnlWinBarLine = new System.Windows.Forms.Panel();
-            this.ucInfo = new LibrarySimulation.UcInfo();
-            this.ucUser = new LibrarySimulation.UcUser();
-            this.ucTakeBook = new LibrarySimulation.UcTakeBook();
-            this.ucCategory = new LibrarySimulation.UcCategory();
-            this.ucBook = new LibrarySimulation.UcBook();
-            this.ucAuthor = new LibrarySimulation.UcAuthor();
             this.pnlMain.SuspendLayout();
             this.pnlViewer.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
@@ -85,6 +85,60 @@ namespace LibrarySimulation
             this.pnlViewer.Name = "pnlViewer";
             this.pnlViewer.Size = new System.Drawing.Size(845, 543);
             this.pnlViewer.TabIndex = 4;
+            // 
+            // ucInfo
+            // 
+            this.ucInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucInfo.Location = new System.Drawing.Point(0, 0);
+            this.ucInfo.Name = "ucInfo";
+            this.ucInfo.Size = new System.Drawing.Size(845, 543);
+            this.ucInfo.TabIndex = 0;
+            // 
+            // ucAuthor
+            // 
+            this.ucAuthor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucAuthor.Location = new System.Drawing.Point(0, 0);
+            this.ucAuthor.Name = "ucAuthor";
+            this.ucAuthor.Size = new System.Drawing.Size(845, 543);
+            this.ucAuthor.TabIndex = 5;
+            // 
+            // ucBook
+            // 
+            this.ucBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucBook.Location = new System.Drawing.Point(0, 0);
+            this.ucBook.Name = "ucBook";
+            this.ucBook.Size = new System.Drawing.Size(845, 543);
+            this.ucBook.TabIndex = 4;
+            // 
+            // ucCategory
+            // 
+            this.ucCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucCategory.Location = new System.Drawing.Point(0, 0);
+            this.ucCategory.Name = "ucCategory";
+            this.ucCategory.Size = new System.Drawing.Size(845, 543);
+            this.ucCategory.TabIndex = 3;
+            // 
+            // ucTakeBook
+            // 
+            this.ucTakeBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucTakeBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucTakeBook.Location = new System.Drawing.Point(0, 0);
+            this.ucTakeBook.Name = "ucTakeBook";
+            this.ucTakeBook.Size = new System.Drawing.Size(845, 543);
+            this.ucTakeBook.TabIndex = 2;
+            // 
+            // ucUser
+            // 
+            this.ucUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucUser.Location = new System.Drawing.Point(0, 0);
+            this.ucUser.Name = "ucUser";
+            this.ucUser.Size = new System.Drawing.Size(845, 543);
+            this.ucUser.TabIndex = 1;
             // 
             // pnlSidebar
             // 
@@ -312,55 +366,6 @@ namespace LibrarySimulation
             this.pnlWinBarLine.Name = "pnlWinBarLine";
             this.pnlWinBarLine.Size = new System.Drawing.Size(1086, 1);
             this.pnlWinBarLine.TabIndex = 0;
-            // 
-            // ucInfo
-            // 
-            this.ucInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.ucInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucInfo.Location = new System.Drawing.Point(0, 0);
-            this.ucInfo.Name = "ucInfo";
-            this.ucInfo.Size = new System.Drawing.Size(845, 543);
-            this.ucInfo.TabIndex = 0;
-            // 
-            // ucUser
-            // 
-            this.ucUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucUser.Location = new System.Drawing.Point(0, 0);
-            this.ucUser.Name = "ucUser";
-            this.ucUser.Size = new System.Drawing.Size(845, 543);
-            this.ucUser.TabIndex = 1;
-            // 
-            // ucTakeBook
-            // 
-            this.ucTakeBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucTakeBook.Location = new System.Drawing.Point(0, 0);
-            this.ucTakeBook.Name = "ucTakeBook";
-            this.ucTakeBook.Size = new System.Drawing.Size(845, 543);
-            this.ucTakeBook.TabIndex = 2;
-            // 
-            // ucCategory
-            // 
-            this.ucCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucCategory.Location = new System.Drawing.Point(0, 0);
-            this.ucCategory.Name = "ucCategory";
-            this.ucCategory.Size = new System.Drawing.Size(845, 543);
-            this.ucCategory.TabIndex = 3;
-            // 
-            // ucBook
-            // 
-            this.ucBook.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucBook.Location = new System.Drawing.Point(0, 0);
-            this.ucBook.Name = "ucBook";
-            this.ucBook.Size = new System.Drawing.Size(845, 543);
-            this.ucBook.TabIndex = 4;
-            // 
-            // ucAuthor
-            // 
-            this.ucAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucAuthor.Location = new System.Drawing.Point(0, 0);
-            this.ucAuthor.Name = "ucAuthor";
-            this.ucAuthor.Size = new System.Drawing.Size(845, 543);
-            this.ucAuthor.TabIndex = 5;
             // 
             // FrmMain
             // 

@@ -10,3 +10,6 @@ Ana Ekran
 
 ![plot](./images/homePage.png)
 
+Kitaplar Ekranı
+
+![plot](./images/booksPage.png)
