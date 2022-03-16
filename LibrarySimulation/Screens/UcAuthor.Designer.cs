@@ -39,6 +39,8 @@ namespace LibrarySimulation
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picEdit = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
+            this.lblAuthorLastName = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuthorList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
@@ -52,7 +54,7 @@ namespace LibrarySimulation
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblInfo.ForeColor = System.Drawing.Color.White;
-            this.lblInfo.Location = new System.Drawing.Point(45, 433);
+            this.lblInfo.Location = new System.Drawing.Point(45, 478);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(60, 19);
             this.lblInfo.TabIndex = 9;
@@ -75,7 +77,7 @@ namespace LibrarySimulation
             this.tbxAuthorName.Location = new System.Drawing.Point(167, 382);
             this.tbxAuthorName.Name = "tbxAuthorName";
             this.tbxAuthorName.Size = new System.Drawing.Size(273, 27);
-            this.tbxAuthorName.TabIndex = 6;
+            this.tbxAuthorName.TabIndex = 2;
             // 
             // dgvAuthorList
             // 
@@ -88,16 +90,15 @@ namespace LibrarySimulation
             this.dgvAuthorList.ReadOnly = true;
             this.dgvAuthorList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuthorList.Size = new System.Drawing.Size(750, 300);
-            this.dgvAuthorList.TabIndex = 5;
+            this.dgvAuthorList.TabIndex = 1;
             // 
             // tbxInfo
             // 
             this.tbxInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxInfo.Location = new System.Drawing.Point(167, 431);
-            this.tbxInfo.Multiline = true;
+            this.tbxInfo.Location = new System.Drawing.Point(167, 474);
             this.tbxInfo.Name = "tbxInfo";
-            this.tbxInfo.Size = new System.Drawing.Size(273, 70);
-            this.tbxInfo.TabIndex = 10;
+            this.tbxInfo.Size = new System.Drawing.Size(273, 27);
+            this.tbxInfo.TabIndex = 4;
             // 
             // picDiscard
             // 
@@ -158,11 +159,32 @@ namespace LibrarySimulation
             this.picAdd.TabIndex = 15;
             this.picAdd.TabStop = false;
             // 
+            // lblAuthorLastName
+            // 
+            this.lblAuthorLastName.AutoSize = true;
+            this.lblAuthorLastName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAuthorLastName.ForeColor = System.Drawing.Color.White;
+            this.lblAuthorLastName.Location = new System.Drawing.Point(45, 432);
+            this.lblAuthorLastName.Name = "lblAuthorLastName";
+            this.lblAuthorLastName.Size = new System.Drawing.Size(110, 19);
+            this.lblAuthorLastName.TabIndex = 23;
+            this.lblAuthorLastName.Text = "Yazar Soyadı";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(167, 428);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(273, 27);
+            this.textBox1.TabIndex = 3;
+            // 
             // UcAuthor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Controls.Add(this.lblAuthorLastName);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.picDiscard);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picDelete);
@@ -198,5 +220,7 @@ namespace LibrarySimulation
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picSave;
         private System.Windows.Forms.PictureBox picDiscard;
+        public System.Windows.Forms.Label lblAuthorLastName;
+        public System.Windows.Forms.TextBox textBox1;
     }
 }

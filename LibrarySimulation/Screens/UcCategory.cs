@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySimulation.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,17 @@ namespace LibrarySimulation
         public void UC_Load()
         {
             ClearAll();
+
+            BookDbContext bookDbContext = new BookDbContext();
+
+            var categories = bookDbContext.Categories.Select(c => new
+            {
+                ID = c.Id,
+                Kategori = c.Name,
+                BuTurdeKitapSayisi = c.Books.Sum(b => b.CategoryId)
+            });
+
+            dgvCategoryList.DataSource = categories.ToList();
         }
 
         private void picEdit_Click(object sender, EventArgs e)

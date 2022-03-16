@@ -107,12 +107,6 @@ namespace LibrarySimulation
             bookDbContext.Database.EnsureCreated();
 
             //MessageBox.Show(isCreated ? "Veritabanı kuruldu" : "Veritabanı başarısız");
-
-            ucBook.dgvBookList.DataSource = bookDbContext.Books.ToList();
-            ucAuthor.dgvAuthorList.DataSource = bookDbContext.Authors.ToList();
-            ucCategory.dgvCategoryList.DataSource = bookDbContext.Categories.ToList();
-            ucUser.dgvUserList.DataSource = bookDbContext.Users.ToList();
-            
         }
         private void ColorOff()
         {

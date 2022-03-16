@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySimulation.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,18 @@ namespace LibrarySimulation
         public void UC_Load()
         {
             ClearAll();
+
+            BookDbContext bookDbContext = new BookDbContext();
+
+            var users = bookDbContext.Users.Select(u => new
+            {
+                ID = u.Id,
+                AdSoyad = u.Name,
+                KayitTarihi = u.CreationDate,
+                ElindekiKitapSayisi = u.Books.Sum(b => b.UserId)
+            });
+
+            dgvUserList.DataSource = users.ToList();
         }
 
         private void picEdit_Click(object sender, EventArgs e)

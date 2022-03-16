@@ -41,6 +41,8 @@ namespace LibrarySimulation
             this.picEdit = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
             this.nupPageCount = new System.Windows.Forms.NumericUpDown();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.cbxAuthor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
@@ -55,19 +57,22 @@ namespace LibrarySimulation
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblYear.ForeColor = System.Drawing.Color.White;
-            this.lblYear.Location = new System.Drawing.Point(45, 478);
+            this.lblYear.Location = new System.Drawing.Point(281, 478);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(89, 19);
+            this.lblYear.Size = new System.Drawing.Size(70, 19);
             this.lblYear.TabIndex = 9;
-            this.lblYear.Text = "Çıkış Tarihi";
+            this.lblYear.Text = "Çıkış Yılı";
             // 
             // dtpYear
             // 
+            this.dtpYear.CustomFormat = "yyyy";
             this.dtpYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpYear.Location = new System.Drawing.Point(167, 478);
+            this.dtpYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpYear.Location = new System.Drawing.Point(365, 474);
             this.dtpYear.Name = "dtpYear";
-            this.dtpYear.Size = new System.Drawing.Size(273, 27);
-            this.dtpYear.TabIndex = 8;
+            this.dtpYear.ShowUpDown = true;
+            this.dtpYear.Size = new System.Drawing.Size(75, 27);
+            this.dtpYear.TabIndex = 5;
             // 
             // lblBookName
             // 
@@ -86,7 +91,7 @@ namespace LibrarySimulation
             this.tbxBookName.Location = new System.Drawing.Point(167, 382);
             this.tbxBookName.Name = "tbxBookName";
             this.tbxBookName.Size = new System.Drawing.Size(273, 27);
-            this.tbxBookName.TabIndex = 6;
+            this.tbxBookName.TabIndex = 2;
             // 
             // dgvBookList
             // 
@@ -99,14 +104,14 @@ namespace LibrarySimulation
             this.dgvBookList.ReadOnly = true;
             this.dgvBookList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBookList.Size = new System.Drawing.Size(750, 300);
-            this.dgvBookList.TabIndex = 5;
+            this.dgvBookList.TabIndex = 1;
             // 
             // lblPageCount
             // 
             this.lblPageCount.AutoSize = true;
             this.lblPageCount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblPageCount.ForeColor = System.Drawing.Color.White;
-            this.lblPageCount.Location = new System.Drawing.Point(45, 432);
+            this.lblPageCount.Location = new System.Drawing.Point(45, 478);
             this.lblPageCount.Name = "lblPageCount";
             this.lblPageCount.Size = new System.Drawing.Size(98, 19);
             this.lblPageCount.TabIndex = 11;
@@ -174,21 +179,43 @@ namespace LibrarySimulation
             // nupPageCount
             // 
             this.nupPageCount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.nupPageCount.Location = new System.Drawing.Point(167, 428);
+            this.nupPageCount.Location = new System.Drawing.Point(167, 474);
             this.nupPageCount.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nupPageCount.Name = "nupPageCount";
-            this.nupPageCount.Size = new System.Drawing.Size(273, 27);
-            this.nupPageCount.TabIndex = 22;
+            this.nupPageCount.Size = new System.Drawing.Size(70, 27);
+            this.nupPageCount.TabIndex = 4;
+            // 
+            // lblAuthor
+            // 
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAuthor.ForeColor = System.Drawing.Color.White;
+            this.lblAuthor.Location = new System.Drawing.Point(45, 432);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(84, 19);
+            this.lblAuthor.TabIndex = 23;
+            this.lblAuthor.Text = "Yazar Adı";
+            // 
+            // cbxAuthor
+            // 
+            this.cbxAuthor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbxAuthor.FormattingEnabled = true;
+            this.cbxAuthor.Location = new System.Drawing.Point(167, 427);
+            this.cbxAuthor.Name = "cbxAuthor";
+            this.cbxAuthor.Size = new System.Drawing.Size(273, 29);
+            this.cbxAuthor.TabIndex = 3;
             // 
             // UcBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Controls.Add(this.cbxAuthor);
+            this.Controls.Add(this.lblAuthor);
             this.Controls.Add(this.nupPageCount);
             this.Controls.Add(this.picDiscard);
             this.Controls.Add(this.picSave);
@@ -229,5 +256,7 @@ namespace LibrarySimulation
         private System.Windows.Forms.PictureBox picSave;
         private System.Windows.Forms.PictureBox picDiscard;
         private System.Windows.Forms.NumericUpDown nupPageCount;
+        public System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.ComboBox cbxAuthor;
     }
 }

@@ -16,4 +16,12 @@ Kitaplar Ekranı
 
 Yazarlar Ekranı (Düzenleme Modunda)
 
-![plot](./images/authorEditPage.png)
+![plot](./images/authorsEditPage.png)
+
+Kullanıcılar Ekranı
+
+![plot](./images/usersPage.png)
+
+Kategoriler Ekranı
+
+![plot](./images/categoriesPage.png)

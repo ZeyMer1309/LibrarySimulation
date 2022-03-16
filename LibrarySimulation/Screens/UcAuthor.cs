@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySimulation.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,22 @@ namespace LibrarySimulation
         public void UC_Load()
         {
             ClearAll();
+
+            BookDbContext bookDbContext = new BookDbContext();
+
+            var authors = bookDbContext.Authors.Select(a => new
+            {
+                ID = a.Id,
+                Yazar = a.Name + " " + a.LastName,
+                Bilgi = a.Info,
+                KitapSayisi = a.Books.Sum(b => b.AuthorId)
+            });
+
+            dgvAuthorList.DataSource = authors.ToList();
+
+            dgvAuthorList.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvAuthorList.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
         }
 
         private void picEdit_Click(object sender, EventArgs e)
