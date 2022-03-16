@@ -35,18 +35,19 @@ namespace LibrarySimulation
             this.tbxBookName = new System.Windows.Forms.TextBox();
             this.dgvBookList = new System.Windows.Forms.DataGridView();
             this.lblPageCount = new System.Windows.Forms.Label();
-            this.tbxPageCount = new System.Windows.Forms.TextBox();
             this.picDiscard = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picEdit = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
+            this.nupPageCount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPageCount)).BeginInit();
             this.SuspendLayout();
             // 
             // lblYear
@@ -89,11 +90,14 @@ namespace LibrarySimulation
             // 
             // dgvBookList
             // 
+            this.dgvBookList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBookList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBookList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookList.GridColor = System.Drawing.Color.White;
             this.dgvBookList.Location = new System.Drawing.Point(49, 50);
             this.dgvBookList.Name = "dgvBookList";
+            this.dgvBookList.ReadOnly = true;
+            this.dgvBookList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBookList.Size = new System.Drawing.Size(750, 300);
             this.dgvBookList.TabIndex = 5;
             // 
@@ -107,14 +111,6 @@ namespace LibrarySimulation
             this.lblPageCount.Size = new System.Drawing.Size(98, 19);
             this.lblPageCount.TabIndex = 11;
             this.lblPageCount.Text = "Sayfa Sayısı";
-            // 
-            // tbxPageCount
-            // 
-            this.tbxPageCount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPageCount.Location = new System.Drawing.Point(167, 428);
-            this.tbxPageCount.Name = "tbxPageCount";
-            this.tbxPageCount.Size = new System.Drawing.Size(273, 27);
-            this.tbxPageCount.TabIndex = 10;
             // 
             // picDiscard
             // 
@@ -175,18 +171,31 @@ namespace LibrarySimulation
             this.picAdd.TabIndex = 12;
             this.picAdd.TabStop = false;
             // 
+            // nupPageCount
+            // 
+            this.nupPageCount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nupPageCount.Location = new System.Drawing.Point(167, 428);
+            this.nupPageCount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nupPageCount.Name = "nupPageCount";
+            this.nupPageCount.Size = new System.Drawing.Size(273, 27);
+            this.nupPageCount.TabIndex = 22;
+            // 
             // UcBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Controls.Add(this.nupPageCount);
             this.Controls.Add(this.picDiscard);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picDelete);
             this.Controls.Add(this.picEdit);
             this.Controls.Add(this.picAdd);
             this.Controls.Add(this.lblPageCount);
-            this.Controls.Add(this.tbxPageCount);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.dtpYear);
             this.Controls.Add(this.lblBookName);
@@ -200,6 +209,7 @@ namespace LibrarySimulation
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupPageCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,11 +223,11 @@ namespace LibrarySimulation
         public System.Windows.Forms.TextBox tbxBookName;
         public System.Windows.Forms.DataGridView dgvBookList;
         public System.Windows.Forms.Label lblPageCount;
-        public System.Windows.Forms.TextBox tbxPageCount;
         private System.Windows.Forms.PictureBox picAdd;
         private System.Windows.Forms.PictureBox picEdit;
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picSave;
         private System.Windows.Forms.PictureBox picDiscard;
+        private System.Windows.Forms.NumericUpDown nupPageCount;
     }
 }

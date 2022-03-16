@@ -31,7 +31,7 @@ namespace LibrarySimulation
             picDiscard.Visible = false;
 
             tbxBookName.Text = "";
-            tbxPageCount.Text = "";
+            nupPageCount.Value = 0;
             dtpYear.Value = DateTime.Today;
         }
 

@@ -51,6 +51,8 @@ namespace LibrarySimulation
 
             picSave.Visible = true;
             picDiscard.Visible = true;
+
+            dgvAuthorList.Enabled = false;
         }
 
         private void picDiscard_Click(object sender, EventArgs e)

@@ -13,3 +13,7 @@ Ana Ekran
 Kitaplar Ekranı
 
 ![plot](./images/booksPage.png)
+
+Yazarlar Ekranı (Düzenleme Modunda)
+
+![plot](./images/authorEditPage.png)

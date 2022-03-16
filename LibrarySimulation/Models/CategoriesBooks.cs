@@ -12,8 +12,5 @@ namespace LibrarySimulation.Models
         public Category Category { get; set; }
         public int BookId { get; set; }
         public Book Book { get; set; }
-
-        public ICollection<Book> Books { get; set; }
-        public ICollection<Category> Categories { get; set; }
     }
 }

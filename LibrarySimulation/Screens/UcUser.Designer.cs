@@ -49,11 +49,14 @@ namespace LibrarySimulation
             // 
             // dgvUserList
             // 
+            this.dgvUserList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUserList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUserList.GridColor = System.Drawing.Color.White;
             this.dgvUserList.Location = new System.Drawing.Point(49, 50);
             this.dgvUserList.Name = "dgvUserList";
+            this.dgvUserList.ReadOnly = true;
+            this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUserList.Size = new System.Drawing.Size(750, 300);
             this.dgvUserList.TabIndex = 0;
             // 

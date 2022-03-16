@@ -79,11 +79,14 @@ namespace LibrarySimulation
             // 
             // dgvAuthorList
             // 
+            this.dgvAuthorList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAuthorList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAuthorList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuthorList.GridColor = System.Drawing.Color.White;
             this.dgvAuthorList.Location = new System.Drawing.Point(49, 50);
             this.dgvAuthorList.Name = "dgvAuthorList";
+            this.dgvAuthorList.ReadOnly = true;
+            this.dgvAuthorList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuthorList.Size = new System.Drawing.Size(750, 300);
             this.dgvAuthorList.TabIndex = 5;
             // 

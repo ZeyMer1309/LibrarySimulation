@@ -66,11 +66,14 @@ namespace LibrarySimulation
             // 
             // dgvCategoryList
             // 
+            this.dgvCategoryList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCategoryList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCategoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoryList.GridColor = System.Drawing.Color.White;
             this.dgvCategoryList.Location = new System.Drawing.Point(49, 50);
             this.dgvCategoryList.Name = "dgvCategoryList";
+            this.dgvCategoryList.ReadOnly = true;
+            this.dgvCategoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoryList.Size = new System.Drawing.Size(750, 300);
             this.dgvCategoryList.TabIndex = 5;
             // 

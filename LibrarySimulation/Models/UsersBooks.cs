@@ -15,8 +15,5 @@ namespace LibrarySimulation.Models
 
         public DateTime BorrowDate { get; set; }
         public DateTime? ReturnDate { get; set; }
-
-        public ICollection<Book> Books { get; set; }
-        public ICollection<User> Users { get; set; }
     }
 }

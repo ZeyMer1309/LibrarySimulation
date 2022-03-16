@@ -200,3 +200,4 @@ D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySim
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.csproj.CoreCompileInputs.cache
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.exe
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.pdb
+D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.csproj.AssemblyReference.cache
