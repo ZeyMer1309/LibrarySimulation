@@ -323,6 +323,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\deleteGrey.png" />
+    <None Include="Resources\addGrey.png" />
+    <None Include="Resources\editGrey.png" />
+    <None Include="Resources\discard.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\saveOrDiscard.png" />
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

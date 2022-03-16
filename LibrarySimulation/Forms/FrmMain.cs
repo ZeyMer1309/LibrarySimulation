@@ -104,17 +104,15 @@ namespace LibrarySimulation
             Coloring(btnInfo, Color.Gold);
 
             BookDbContext bookDbContext = new BookDbContext();
-            var isCreated = bookDbContext.Database.EnsureCreated();
+            bookDbContext.Database.EnsureCreated();
 
             //MessageBox.Show(isCreated ? "Veritabanı kuruldu" : "Veritabanı başarısız");
 
-            if (isCreated)
-            {
-                ucBook.dgvBookList.DataSource = bookDbContext.Books.ToList();
-                ucAuthor.dgvAuthorList.DataSource = bookDbContext.Authors.ToList();
-                ucCategory.dgvCategoryList.DataSource = bookDbContext.Categories.ToList();
-                ucUser.dgvUserList.DataSource = bookDbContext.Users.ToList();
-            }
+            ucBook.dgvBookList.DataSource = bookDbContext.Books.ToList();
+            ucAuthor.dgvAuthorList.DataSource = bookDbContext.Authors.ToList();
+            ucCategory.dgvCategoryList.DataSource = bookDbContext.Categories.ToList();
+            ucUser.dgvUserList.DataSource = bookDbContext.Users.ToList();
+            
         }
         private void ColorOff()
         {
@@ -148,19 +146,19 @@ namespace LibrarySimulation
                     break;
                 case "btnBook":
                     ucBook.BringToFront();
-
+                    ucBook.UC_Load();
                     break;
                 case "btnAuthor":
                     ucAuthor.BringToFront();
-
+                    ucAuthor.UC_Load();
                     break;
                 case "btnCategory":
                     ucCategory.BringToFront();
-
+                    ucCategory.UC_Load();
                     break;
                 case "btnUser":
                     ucUser.BringToFront();
-
+                    ucUser.UC_Load();
                     break;
                 case "btnTakeBook":
                     ucTakeBook.BringToFront();

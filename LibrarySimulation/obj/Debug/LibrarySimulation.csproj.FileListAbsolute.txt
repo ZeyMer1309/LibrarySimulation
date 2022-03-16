@@ -188,7 +188,6 @@ D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\bin\Debug\pt-BR\Micr
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\bin\Debug\ru\Microsoft.Data.SqlClient.resources.dll
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
-D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.csproj.AssemblyReference.cache
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.FrmMain.resources
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.Properties.Resources.resources
 D:\TURKCELL\[ödev3] -  LibrarySimulation\LibrarySimulation\obj\Debug\LibrarySimulation.UcInfo.resources
