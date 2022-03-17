@@ -1,4 +1,5 @@
 ﻿using LibrarySimulation.Data;
+using LibrarySimulation.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace LibrarySimulation
 {
     public partial class UcCategory : UserControl
     {
+        BookDbContext bookDbContext = new BookDbContext();
         public UcCategory()
         {
             InitializeComponent();
@@ -34,20 +36,23 @@ namespace LibrarySimulation
             tbxCategory.Text = "";
         }
 
-        public void UC_Load()
+        private void RefreshData()
         {
-            ClearAll();
-
-            BookDbContext bookDbContext = new BookDbContext();
-
             var categories = bookDbContext.Categories.Select(c => new
             {
                 ID = c.Id,
                 Kategori = c.Name,
-                BuTurdeKitapSayisi = c.Books.Sum(b => b.CategoryId)
+                BuTurdeKitapSayisi = c.Books.Sum(b => 1)
             });
 
             dgvCategoryList.DataSource = categories.ToList();
+
+            ClearAll();
+        }
+
+        public void UC_Load()
+        {
+            RefreshData();
         }
 
         private void picEdit_Click(object sender, EventArgs e)
@@ -67,6 +72,16 @@ namespace LibrarySimulation
         private void picDiscard_Click(object sender, EventArgs e)
         {
             ClearAll();
+        }
+
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            Category category = new Category { Name = tbxCategory.Text };
+
+            bookDbContext.Categories.Add(category);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
         }
     }
 }

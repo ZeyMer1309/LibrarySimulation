@@ -71,6 +71,7 @@ namespace LibrarySimulation
             this.dgvCategoryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoryList.GridColor = System.Drawing.Color.White;
             this.dgvCategoryList.Location = new System.Drawing.Point(49, 50);
+            this.dgvCategoryList.MultiSelect = false;
             this.dgvCategoryList.Name = "dgvCategoryList";
             this.dgvCategoryList.ReadOnly = true;
             this.dgvCategoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -135,6 +136,7 @@ namespace LibrarySimulation
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAdd.TabIndex = 15;
             this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
             // UcCategory
             // 

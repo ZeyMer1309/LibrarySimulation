@@ -100,6 +100,7 @@ namespace LibrarySimulation
             this.dgvBookList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookList.GridColor = System.Drawing.Color.White;
             this.dgvBookList.Location = new System.Drawing.Point(49, 50);
+            this.dgvBookList.MultiSelect = false;
             this.dgvBookList.Name = "dgvBookList";
             this.dgvBookList.ReadOnly = true;
             this.dgvBookList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -175,6 +176,7 @@ namespace LibrarySimulation
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAdd.TabIndex = 12;
             this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
             // nupPageCount
             // 

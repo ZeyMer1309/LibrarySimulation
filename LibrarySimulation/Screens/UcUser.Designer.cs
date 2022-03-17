@@ -54,6 +54,7 @@ namespace LibrarySimulation
             this.dgvUserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUserList.GridColor = System.Drawing.Color.White;
             this.dgvUserList.Location = new System.Drawing.Point(49, 50);
+            this.dgvUserList.MultiSelect = false;
             this.dgvUserList.Name = "dgvUserList";
             this.dgvUserList.ReadOnly = true;
             this.dgvUserList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -156,6 +157,7 @@ namespace LibrarySimulation
             this.picAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAdd.TabIndex = 15;
             this.picAdd.TabStop = false;
+            this.picAdd.Click += new System.EventHandler(this.picAdd_Click);
             // 
             // UcUser
             // 

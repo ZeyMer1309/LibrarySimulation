@@ -1,4 +1,5 @@
 ﻿using LibrarySimulation.Data;
+using LibrarySimulation.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace LibrarySimulation
 {
     public partial class UcBook : UserControl
     {
+        BookDbContext bookDbContext = new BookDbContext();
+
         public UcBook()
         {
             InitializeComponent();
@@ -38,13 +41,8 @@ namespace LibrarySimulation
             cbxAuthor.SelectedItem = null;
         }
 
-        public void UC_Load()
+        public void RefreshData()
         {
-            ClearAll();
-
-
-            BookDbContext bookDbContext = new BookDbContext();
-
             var books = bookDbContext.Books.Select(b => new
             {
                 ID = b.Id,
@@ -64,11 +62,21 @@ namespace LibrarySimulation
 
 
             var authors = bookDbContext.Authors.Select(a => new
-            {Yazar = a.Name + " " + a.LastName});
+            {
+                ID = a.Id,
+                Yazar = a.Name + " " + a.LastName
+            }).ToList();
 
-            foreach (var item in authors.ToList())
-                cbxAuthor.Items.Add(item.Yazar);
-            
+            cbxAuthor.DataSource = authors;
+            cbxAuthor.DisplayMember = "Yazar"; // Görünecek kısım
+            cbxAuthor.ValueMember = "ID"; // Değer kısmı
+
+            ClearAll();
+        }
+
+        public void UC_Load()
+        {
+            RefreshData();
         }
 
         private void picEdit_Click(object sender, EventArgs e)
@@ -90,6 +98,21 @@ namespace LibrarySimulation
             ClearAll();
         }
 
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            Book book = new Book
+            {
+                Name = tbxBookName.Text,
+                AuthorId = (int)cbxAuthor.SelectedValue,
+                IsInShelf = true,
+                PageCount = (int)nupPageCount.Value,
+                Year = dtpYear.Value
+            };
 
+            bookDbContext.Books.Add(book);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
+        }
     }
 }

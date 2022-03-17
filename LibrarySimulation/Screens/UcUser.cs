@@ -1,4 +1,5 @@
 ﻿using LibrarySimulation.Data;
+using LibrarySimulation.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace LibrarySimulation
 {
     public partial class UcUser : UserControl
     {
+        BookDbContext bookDbContext = new BookDbContext();
+
         public UcUser()
         {
             InitializeComponent();
@@ -35,21 +38,24 @@ namespace LibrarySimulation
             dtpCreationDate.Value = DateTime.Today;
         }
 
-        public void UC_Load()
+        private void RefreshData()
         {
-            ClearAll();
-
-            BookDbContext bookDbContext = new BookDbContext();
-
             var users = bookDbContext.Users.Select(u => new
             {
                 ID = u.Id,
                 AdSoyad = u.Name,
                 KayitTarihi = u.CreationDate,
-                ElindekiKitapSayisi = u.Books.Sum(b => b.UserId)
+                ElindekiKitapSayisi = u.Books.Sum(b => 1)
             });
 
             dgvUserList.DataSource = users.ToList();
+
+            ClearAll();
+        }
+
+        public void UC_Load()
+        {
+            RefreshData();
         }
 
         private void picEdit_Click(object sender, EventArgs e)
@@ -69,6 +75,20 @@ namespace LibrarySimulation
         private void picDiscard_Click(object sender, EventArgs e)
         {
             ClearAll();
+        }
+
+        private void picAdd_Click(object sender, EventArgs e)
+        {
+            User user = new User
+            {
+                Name = tbxUserName.Text,
+                CreationDate = dtpCreationDate.Value
+            };
+
+            bookDbContext.Users.Add(user);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
         }
     }
 }

@@ -3,7 +3,7 @@
 
 Turkcell Geleceği Yazanlar Programı Ödevi
 
-Hazırlamış olduğumuz veritabanı diyagramını program haline getirerek sunuyoruz. OOP, Abstraction, ORM, Entity Framework ve MS-SQL kullanılmıştır.
+Hazırlamış olduğumuz veritabanı diyagramını program haline getirerek sunuyoruz. OOP, ORM, Entity Framework ve MS-SQL kullanılmıştır.
 
 
 Ana Ekran
@@ -18,10 +18,10 @@ Yazarlar Ekranı (Düzenleme Modunda)
 
 ![plot](./images/authorsEditPage.png)
 
-Kullanıcılar Ekranı
-
-![plot](./images/usersPage.png)
-
 Kategoriler Ekranı
 
 ![plot](./images/categoriesPage.png)
+
+Kullanıcılar Ekranı
+
+![plot](./images/usersPage.png)
