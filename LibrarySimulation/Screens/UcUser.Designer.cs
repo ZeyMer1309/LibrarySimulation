@@ -123,6 +123,7 @@ namespace LibrarySimulation
             this.picSave.TabIndex = 18;
             this.picSave.TabStop = false;
             this.picSave.Visible = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
             // picDelete
             // 

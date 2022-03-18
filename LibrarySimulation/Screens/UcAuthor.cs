@@ -1,24 +1,21 @@
 ﻿using LibrarySimulation.Data;
 using LibrarySimulation.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibrarySimulation
 {
     public partial class UcAuthor : UserControl
     {
-        BookDbContext bookDbContext = new BookDbContext();
+        BookDbContext bookDbContext;
 
         public UcAuthor()
         {
             InitializeComponent();
+            bookDbContext = new BookDbContext();
         }
 
         public void ClearAll()
@@ -33,6 +30,8 @@ namespace LibrarySimulation
 
             picSave.Visible = false;
             picDiscard.Visible = false;
+
+            dgvAuthorList.Enabled = true;
 
             tbxAuthorName.Text = "";
             tbxAuthorLastName.Text = "";
@@ -76,6 +75,25 @@ namespace LibrarySimulation
             picDiscard.Visible = true;
 
             dgvAuthorList.Enabled = false;
+
+            var authors = bookDbContext.Authors.Select(a => new
+            {
+                ID = a.Id,
+                YazarAdi = a.Name,
+                YazarSoyadi = a.LastName,
+                Bilgi = a.Info,
+            }).ToList();
+
+            int currentId = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value);
+
+            foreach (var author in authors)
+                if (author.ID == currentId)
+                {
+                    tbxAuthorName.Text = author.YazarAdi;
+                    tbxAuthorLastName.Text = author.YazarSoyadi;
+                    tbxInfo.Text = author.Bilgi;
+                    break;
+                }
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -93,6 +111,41 @@ namespace LibrarySimulation
             };
 
             bookDbContext.Authors.Add(author);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
+        }
+
+        private void picSave_Click(object sender, EventArgs e)
+        {
+            Author updatingAuthor = new Author
+            {
+                Id = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value),
+                Name = tbxAuthorName.Text,
+                LastName = tbxAuthorLastName.Text,
+                Info = tbxInfo.Text
+            };
+
+            bookDbContext.Entry(updatingAuthor).State = EntityState.Modified;
+            bookDbContext.SaveChanges();
+
+            RefreshData();
+        }
+
+        private void picDelete_Click(object sender, EventArgs e)
+        {
+            Author deletingAuthor = new Author
+            {
+                Id = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value),
+                Name = tbxAuthorName.Text,
+                LastName = tbxAuthorLastName.Text,
+                Info = tbxInfo.Text
+            };
+
+            if (bookDbContext.Entry(deletingAuthor).State == EntityState.Detached)
+                bookDbContext.Authors.Attach(deletingAuthor);
+
+            bookDbContext.Authors.Remove(deletingAuthor);
             bookDbContext.SaveChanges();
 
             RefreshData();

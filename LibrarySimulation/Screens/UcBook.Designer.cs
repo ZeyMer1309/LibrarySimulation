@@ -30,7 +30,6 @@ namespace LibrarySimulation
         private void InitializeComponent()
         {
             this.lblYear = new System.Windows.Forms.Label();
-            this.dtpYear = new System.Windows.Forms.DateTimePicker();
             this.lblBookName = new System.Windows.Forms.Label();
             this.tbxBookName = new System.Windows.Forms.TextBox();
             this.dgvBookList = new System.Windows.Forms.DataGridView();
@@ -43,6 +42,7 @@ namespace LibrarySimulation
             this.nupPageCount = new System.Windows.Forms.NumericUpDown();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.cbxAuthor = new System.Windows.Forms.ComboBox();
+            this.nupYear = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
@@ -50,6 +50,7 @@ namespace LibrarySimulation
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPageCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupYear)).BeginInit();
             this.SuspendLayout();
             // 
             // lblYear
@@ -62,17 +63,6 @@ namespace LibrarySimulation
             this.lblYear.Size = new System.Drawing.Size(70, 19);
             this.lblYear.TabIndex = 9;
             this.lblYear.Text = "Çıkış Yılı";
-            // 
-            // dtpYear
-            // 
-            this.dtpYear.CustomFormat = "yyyy";
-            this.dtpYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpYear.Location = new System.Drawing.Point(365, 474);
-            this.dtpYear.Name = "dtpYear";
-            this.dtpYear.ShowUpDown = true;
-            this.dtpYear.Size = new System.Drawing.Size(75, 27);
-            this.dtpYear.TabIndex = 5;
             // 
             // lblBookName
             // 
@@ -142,6 +132,7 @@ namespace LibrarySimulation
             this.picSave.TabIndex = 20;
             this.picSave.TabStop = false;
             this.picSave.Visible = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
             // picDelete
             // 
@@ -188,7 +179,7 @@ namespace LibrarySimulation
             0,
             0});
             this.nupPageCount.Name = "nupPageCount";
-            this.nupPageCount.Size = new System.Drawing.Size(70, 27);
+            this.nupPageCount.Size = new System.Drawing.Size(75, 27);
             this.nupPageCount.TabIndex = 4;
             // 
             // lblAuthor
@@ -204,12 +195,26 @@ namespace LibrarySimulation
             // 
             // cbxAuthor
             // 
+            this.cbxAuthor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxAuthor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxAuthor.FormattingEnabled = true;
             this.cbxAuthor.Location = new System.Drawing.Point(167, 427);
             this.cbxAuthor.Name = "cbxAuthor";
             this.cbxAuthor.Size = new System.Drawing.Size(273, 29);
             this.cbxAuthor.TabIndex = 3;
+            // 
+            // nupYear
+            // 
+            this.nupYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.nupYear.Location = new System.Drawing.Point(365, 475);
+            this.nupYear.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nupYear.Name = "nupYear";
+            this.nupYear.Size = new System.Drawing.Size(75, 27);
+            this.nupYear.TabIndex = 24;
             // 
             // UcBook
             // 
@@ -226,10 +231,10 @@ namespace LibrarySimulation
             this.Controls.Add(this.picAdd);
             this.Controls.Add(this.lblPageCount);
             this.Controls.Add(this.lblYear);
-            this.Controls.Add(this.dtpYear);
             this.Controls.Add(this.lblBookName);
             this.Controls.Add(this.tbxBookName);
             this.Controls.Add(this.dgvBookList);
+            this.Controls.Add(this.nupYear);
             this.Name = "UcBook";
             this.Size = new System.Drawing.Size(845, 543);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookList)).EndInit();
@@ -239,6 +244,7 @@ namespace LibrarySimulation
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPageCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,7 +253,6 @@ namespace LibrarySimulation
         #endregion
 
         public System.Windows.Forms.Label lblYear;
-        public System.Windows.Forms.DateTimePicker dtpYear;
         public System.Windows.Forms.Label lblBookName;
         public System.Windows.Forms.TextBox tbxBookName;
         public System.Windows.Forms.DataGridView dgvBookList;
@@ -260,5 +265,6 @@ namespace LibrarySimulation
         private System.Windows.Forms.NumericUpDown nupPageCount;
         public System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.ComboBox cbxAuthor;
+        private System.Windows.Forms.NumericUpDown nupYear;
     }
 }

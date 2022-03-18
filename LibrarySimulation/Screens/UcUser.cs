@@ -1,5 +1,6 @@
 ﻿using LibrarySimulation.Data;
 using LibrarySimulation.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,12 @@ namespace LibrarySimulation
 {
     public partial class UcUser : UserControl
     {
-        BookDbContext bookDbContext = new BookDbContext();
+        BookDbContext bookDbContext;
 
         public UcUser()
         {
             InitializeComponent();
+            bookDbContext = new BookDbContext();
         }
 
         public void ClearAll()
@@ -26,10 +28,16 @@ namespace LibrarySimulation
             picEdit.Visible = true;
 
             picAdd.Image = Properties.Resources.add;
-            picDelete.Image = Properties.Resources.delete;
-
             picAdd.Enabled = true;
-            picDelete.Enabled = true;
+
+
+
+            picDelete.Image = Properties.Resources.deleteGrey;
+            picDelete.Enabled = false;
+
+
+
+            dgvUserList.Enabled = true;
 
             picSave.Visible = false;
             picDiscard.Visible = false;
@@ -70,6 +78,11 @@ namespace LibrarySimulation
             
             picSave.Visible = true;
             picDiscard.Visible = true;
+
+            dgvUserList.Enabled = false;
+
+            tbxUserName.Text = dgvUserList.SelectedRows[0].Cells[1].Value.ToString();
+            dtpCreationDate.Value = Convert.ToDateTime(dgvUserList.SelectedRows[0].Cells[2].Value);
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -86,6 +99,21 @@ namespace LibrarySimulation
             };
 
             bookDbContext.Users.Add(user);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
+        }
+
+        private void picSave_Click(object sender, EventArgs e)
+        {
+            User updatingUser = new User
+            {
+                Id = Convert.ToInt32(dgvUserList.SelectedRows[0].Cells[0].Value),
+                Name = tbxUserName.Text,
+                CreationDate = dtpCreationDate.Value
+            };
+
+            bookDbContext.Entry(updatingUser).State = EntityState.Modified;
             bookDbContext.SaveChanges();
 
             RefreshData();

@@ -1,5 +1,6 @@
 ﻿using LibrarySimulation.Data;
 using LibrarySimulation.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,12 @@ namespace LibrarySimulation
 {
     public partial class UcBook : UserControl
     {
-        BookDbContext bookDbContext = new BookDbContext();
+        BookDbContext bookDbContext;
 
         public UcBook()
         {
             InitializeComponent();
+            bookDbContext = new BookDbContext();
         }
 
         public void ClearAll()
@@ -26,17 +28,23 @@ namespace LibrarySimulation
             picEdit.Visible = true;
 
             picAdd.Image = Properties.Resources.add;
-            picDelete.Image = Properties.Resources.delete;
-
             picAdd.Enabled = true;
-            picDelete.Enabled = true;
+
+
+
+            picDelete.Image = Properties.Resources.deleteGrey;
+            picDelete.Enabled = false;
+
+
+
+            dgvBookList.Enabled = true;
 
             picSave.Visible = false;
             picDiscard.Visible = false;
 
             tbxBookName.Text = "";
             nupPageCount.Value = 0;
-            dtpYear.Value = DateTime.Today;
+            nupYear.Value = DateTime.Today.Year;
 
             cbxAuthor.SelectedItem = null;
         }
@@ -91,6 +99,16 @@ namespace LibrarySimulation
 
             picSave.Visible = true;
             picDiscard.Visible = true;
+
+            dgvBookList.Enabled = false;
+
+            tbxBookName.Text = dgvBookList.SelectedRows[0].Cells[1].Value.ToString();
+            foreach (dynamic item in cbxAuthor.Items)
+                if (item.Yazar == dgvBookList.SelectedRows[0].Cells[2].Value.ToString())
+                    cbxAuthor.SelectedItem = item;
+            //dtpYear.Value = DateTime.ParseExact(dgvBookList.SelectedRows[0].Cells[5].Value.ToString(),"yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            nupYear.Value = Convert.ToDecimal(dgvBookList.SelectedRows[0].Cells[5].Value);
+            nupPageCount.Value = Convert.ToDecimal(dgvBookList.SelectedRows[0].Cells[3].Value);
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -106,10 +124,28 @@ namespace LibrarySimulation
                 AuthorId = (int)cbxAuthor.SelectedValue,
                 IsInShelf = true,
                 PageCount = (int)nupPageCount.Value,
-                Year = dtpYear.Value
+                Year = DateTime.ParseExact(nupYear.Value.ToString(), "yyyy", System.Globalization.CultureInfo.InvariantCulture)
             };
 
             bookDbContext.Books.Add(book);
+            bookDbContext.SaveChanges();
+
+            RefreshData();
+        }
+
+        private void picSave_Click(object sender, EventArgs e)
+        {
+            Book updatingBook = new Book
+            {
+                Id = Convert.ToInt32(dgvBookList.SelectedRows[0].Cells[0].Value),
+                Name = tbxBookName.Text,
+                AuthorId = (int)cbxAuthor.SelectedValue,
+                IsInShelf = true,
+                PageCount = (int)nupPageCount.Value,
+                Year = DateTime.ParseExact(nupYear.Value.ToString(), "yyyy", System.Globalization.CultureInfo.InvariantCulture)
+            };
+
+            bookDbContext.Entry(updatingBook).State = EntityState.Modified;
             bookDbContext.SaveChanges();
 
             RefreshData();

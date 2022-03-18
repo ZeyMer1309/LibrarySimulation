@@ -125,6 +125,7 @@ namespace LibrarySimulation
             this.picSave.TabIndex = 20;
             this.picSave.TabStop = false;
             this.picSave.Visible = false;
+            this.picSave.Click += new System.EventHandler(this.picSave_Click);
             // 
             // picDelete
             // 
@@ -136,6 +137,7 @@ namespace LibrarySimulation
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picDelete.TabIndex = 17;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picEdit
             // 
