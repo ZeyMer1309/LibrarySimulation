@@ -16,6 +16,7 @@ namespace LibrarySimulation
     public partial class UcUser : UserControl
     {
         BookDbContext bookDbContext;
+        int lastId;
 
         public UcUser()
         {
@@ -30,12 +31,19 @@ namespace LibrarySimulation
             picAdd.Image = Properties.Resources.add;
             picAdd.Enabled = true;
 
-
-
             picDelete.Image = Properties.Resources.deleteGrey;
             picDelete.Enabled = false;
 
-
+            if (dgvUserList.RowCount != 0)
+            {
+                picEdit.Enabled = true;
+                picEdit.Image = Properties.Resources.edit;
+            }
+            else
+            {
+                picEdit.Enabled = false;
+                picEdit.Image = Properties.Resources.editGrey;
+            }
 
             dgvUserList.Enabled = true;
 
@@ -66,23 +74,39 @@ namespace LibrarySimulation
             RefreshData();
         }
 
+        private bool LastIdValidation()
+        {
+            bool result = true;
+
+            if (lastId != Convert.ToInt32(dgvUserList.SelectedRows[0].Cells[0].Value))
+                result = false;
+
+            return result;
+        }
+
         private void picEdit_Click(object sender, EventArgs e)
         {
-            picEdit.Visible = false;
+            if (lastId != Convert.ToInt32(dgvUserList.SelectedRows[0].Cells[0].Value))
+            {
+                picEdit.Visible = false;
 
-            picAdd.Image = Properties.Resources.addGrey;
-            picDelete.Image = Properties.Resources.deleteGrey;
+                picAdd.Image = Properties.Resources.addGrey;
+                picDelete.Image = Properties.Resources.deleteGrey;
 
-            picAdd.Enabled = false;
-            picDelete.Enabled = false;
-            
-            picSave.Visible = true;
-            picDiscard.Visible = true;
+                picAdd.Enabled = false;
+                picDelete.Enabled = false;
 
-            dgvUserList.Enabled = false;
+                picSave.Visible = true;
+                picDiscard.Visible = true;
 
-            tbxUserName.Text = dgvUserList.SelectedRows[0].Cells[1].Value.ToString();
-            dtpCreationDate.Value = Convert.ToDateTime(dgvUserList.SelectedRows[0].Cells[2].Value);
+                dgvUserList.Enabled = false;
+
+                tbxUserName.Text = dgvUserList.SelectedRows[0].Cells[1].Value.ToString();
+                dtpCreationDate.Value = Convert.ToDateTime(dgvUserList.SelectedRows[0].Cells[2].Value);
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir kullanıcı üzerinde değişiklik işlemi talep edin.");
+
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -116,7 +140,30 @@ namespace LibrarySimulation
             bookDbContext.Entry(updatingUser).State = EntityState.Modified;
             bookDbContext.SaveChanges();
 
+            lastId = Convert.ToInt32(dgvUserList.SelectedRows[0].Cells[0].Value);
+
             RefreshData();
+        }
+
+        private void picDelete_Click(object sender, EventArgs e)
+        {
+            if (LastIdValidation())
+            {
+                User deletingUser = new User
+                {
+                    Id = Convert.ToInt32(dgvUserList.SelectedRows[0].Cells[0].Value)
+                };
+
+                if (bookDbContext.Entry(deletingUser).State == EntityState.Detached)
+                    bookDbContext.Users.Attach(deletingUser);
+
+                bookDbContext.Users.Remove(deletingUser);
+                bookDbContext.SaveChanges();
+
+                RefreshData();
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir kitap üzerinde değişiklik işlemi talep edin.");
         }
     }
 }

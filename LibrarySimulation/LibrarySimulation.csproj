@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\BookDbContext.cs" />
+    <Compile Include="Data\BookSQL.cs" />
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +232,12 @@
     <Compile Include="Screens\UcTakeBook.Designer.cs">
       <DependentUpon>UcTakeBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\UcUserCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UcUserCategory.Designer.cs">
+      <DependentUpon>UcUserCategory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +268,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UcTakeBook.resx">
       <DependentUpon>UcTakeBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UcUserCategory.resx">
+      <DependentUpon>UcUserCategory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -323,6 +333,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\giveGrey.png" />
+    <None Include="Resources\give.png" />
+    <None Include="Resources\takeGrey.png" />
+    <None Include="Resources\take.png" />
+    <None Include="Resources\findGrey.png" />
+    <None Include="Resources\find.png" />
     <None Include="Resources\deleteGrey.png" />
     <None Include="Resources\addGrey.png" />
     <None Include="Resources\editGrey.png" />

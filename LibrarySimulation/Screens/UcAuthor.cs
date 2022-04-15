@@ -11,6 +11,7 @@ namespace LibrarySimulation
     public partial class UcAuthor : UserControl
     {
         BookDbContext bookDbContext;
+        int lastId;
 
         public UcAuthor()
         {
@@ -30,6 +31,23 @@ namespace LibrarySimulation
 
             picSave.Visible = false;
             picDiscard.Visible = false;
+
+            if (dgvAuthorList.RowCount != 0)
+            {
+                picEdit.Enabled = true;
+                picEdit.Image = Properties.Resources.edit;
+
+                picDelete.Enabled = true;
+                picDelete.Image = Properties.Resources.delete;
+            }
+            else
+            {
+                picEdit.Enabled = false;
+                picEdit.Image = Properties.Resources.editGrey;
+
+                picDelete.Enabled = false;
+                picDelete.Image = Properties.Resources.deleteGrey;
+            }
 
             dgvAuthorList.Enabled = true;
 
@@ -61,39 +79,54 @@ namespace LibrarySimulation
             RefreshData();
         }
 
+        private bool LastIdValidation()
+        {
+            bool result = true;
+
+            if (lastId != Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value))
+                result = false;
+
+            return result;
+        }
+
         private void picEdit_Click(object sender, EventArgs e)
         {
-            picEdit.Visible = false;
-
-            picAdd.Image = Properties.Resources.addGrey;
-            picDelete.Image = Properties.Resources.deleteGrey;
-
-            picAdd.Enabled = false;
-            picDelete.Enabled = false;
-
-            picSave.Visible = true;
-            picDiscard.Visible = true;
-
-            dgvAuthorList.Enabled = false;
-
-            var authors = bookDbContext.Authors.Select(a => new
+            if (LastIdValidation())
             {
-                ID = a.Id,
-                YazarAdi = a.Name,
-                YazarSoyadi = a.LastName,
-                Bilgi = a.Info,
-            }).ToList();
+                picEdit.Visible = false;
 
-            int currentId = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value);
+                picAdd.Image = Properties.Resources.addGrey;
+                picDelete.Image = Properties.Resources.deleteGrey;
 
-            foreach (var author in authors)
-                if (author.ID == currentId)
+                picAdd.Enabled = false;
+                picDelete.Enabled = false;
+
+                picSave.Visible = true;
+                picDiscard.Visible = true;
+
+                dgvAuthorList.Enabled = false;
+
+                var authors = bookDbContext.Authors.Select(a => new
                 {
-                    tbxAuthorName.Text = author.YazarAdi;
-                    tbxAuthorLastName.Text = author.YazarSoyadi;
-                    tbxInfo.Text = author.Bilgi;
-                    break;
-                }
+                    ID = a.Id,
+                    YazarAdi = a.Name,
+                    YazarSoyadi = a.LastName,
+                    Bilgi = a.Info,
+                }).ToList();
+
+                int currentId = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value);
+
+                foreach (var author in authors)
+                    if (author.ID == currentId)
+                    {
+                        tbxAuthorName.Text = author.YazarAdi;
+                        tbxAuthorLastName.Text = author.YazarSoyadi;
+                        tbxInfo.Text = author.Bilgi;
+                        break;
+                    }
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir yazar üzerinde değişiklik işlemi talep edin.");
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -129,26 +162,31 @@ namespace LibrarySimulation
             bookDbContext.Entry(updatingAuthor).State = EntityState.Modified;
             bookDbContext.SaveChanges();
 
+            lastId = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value);
+
             RefreshData();
         }
 
         private void picDelete_Click(object sender, EventArgs e)
         {
-            Author deletingAuthor = new Author
+            if (LastIdValidation())
             {
-                Id = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value),
-                Name = tbxAuthorName.Text,
-                LastName = tbxAuthorLastName.Text,
-                Info = tbxInfo.Text
-            };
+                Author deletingAuthor = new Author
+                {
+                    Id = Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value)
+                };
 
-            if (bookDbContext.Entry(deletingAuthor).State == EntityState.Detached)
-                bookDbContext.Authors.Attach(deletingAuthor);
+                if (bookDbContext.Entry(deletingAuthor).State == EntityState.Detached)
+                    bookDbContext.Authors.Attach(deletingAuthor);
 
-            bookDbContext.Authors.Remove(deletingAuthor);
-            bookDbContext.SaveChanges();
+                bookDbContext.Authors.Remove(deletingAuthor);
+                bookDbContext.SaveChanges();
 
-            RefreshData();
+                RefreshData();
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir yazar üzerinde silme işlemi talep edin.");
+
         }
     }
 }

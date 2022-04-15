@@ -36,30 +36,30 @@ namespace LibrarySimulation.Data
             modelBuilder.Entity<Book>().HasMany(book => book.Users)
                                        .WithOne(ub => ub.Book)
                                        .HasForeignKey(x => x.BookId)
-                                       .OnDelete(DeleteBehavior.NoAction);
+                                       .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<User>().HasMany(u => u.Books)
                                        .WithOne(ub => ub.User)
                                        .HasForeignKey(x => x.UserId)
-                                       .OnDelete(DeleteBehavior.NoAction);
+                                       .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<CategoriesBooks>().HasKey("BookId", "CategoryId");
 
             modelBuilder.Entity<Book>().HasMany(book => book.Categories)
                                        .WithOne(cb => cb.Book)
                                        .HasForeignKey(x => x.BookId)
-                                       .OnDelete(DeleteBehavior.NoAction);
+                                       .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Category>().HasMany(c => c.Books)
                                            .WithOne(cb => cb.Category)
                                            .HasForeignKey(x => x.CategoryId)
-                                           .OnDelete(DeleteBehavior.NoAction);
+                                           .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Author>().HasData(new Author { Id = 1, Name = "Agatha", LastName = "Christie", Info = "Polisiye roman yazarı" });
 
             modelBuilder.Entity<Category>().HasData(new Category { Id = 1, Name = "Polisiye" });
 
-            modelBuilder.Entity<Book>().HasData(new Book { Id = 1, Name = "Doğu Ekspresinde Cinayet", AuthorId = 1 });
+            modelBuilder.Entity<Book>().HasData(new Book { Id = 1, Name = "Doğu Ekspresinde Cinayet", AuthorId = 1, Year = new DateTime(2000,01,01) });
 
             modelBuilder.Entity<CategoriesBooks>().HasData(new CategoriesBooks { BookId = 1, CategoryId = 1 });
 

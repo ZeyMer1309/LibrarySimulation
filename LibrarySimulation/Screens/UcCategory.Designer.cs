@@ -32,12 +32,15 @@ namespace LibrarySimulation
             this.lblCategory = new System.Windows.Forms.Label();
             this.tbxCategory = new System.Windows.Forms.TextBox();
             this.dgvCategoryList = new System.Windows.Forms.DataGridView();
+            this.ucUserCategory1 = new LibrarySimulation.Screens.UcBookCategory();
+            this.picFind = new System.Windows.Forms.PictureBox();
             this.picDiscard = new System.Windows.Forms.PictureBox();
             this.picSave = new System.Windows.Forms.PictureBox();
             this.picDelete = new System.Windows.Forms.PictureBox();
             this.picEdit = new System.Windows.Forms.PictureBox();
             this.picAdd = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoryList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).BeginInit();
@@ -50,7 +53,7 @@ namespace LibrarySimulation
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblCategory.ForeColor = System.Drawing.Color.White;
-            this.lblCategory.Location = new System.Drawing.Point(45, 431);
+            this.lblCategory.Location = new System.Drawing.Point(45, 408);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(74, 19);
             this.lblCategory.TabIndex = 7;
@@ -59,7 +62,7 @@ namespace LibrarySimulation
             // tbxCategory
             // 
             this.tbxCategory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxCategory.Location = new System.Drawing.Point(130, 427);
+            this.tbxCategory.Location = new System.Drawing.Point(49, 439);
             this.tbxCategory.Name = "tbxCategory";
             this.tbxCategory.Size = new System.Drawing.Size(273, 27);
             this.tbxCategory.TabIndex = 6;
@@ -77,6 +80,28 @@ namespace LibrarySimulation
             this.dgvCategoryList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategoryList.Size = new System.Drawing.Size(750, 300);
             this.dgvCategoryList.TabIndex = 5;
+            // 
+            // ucUserCategory1
+            // 
+            this.ucUserCategory1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.ucUserCategory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucUserCategory1.Location = new System.Drawing.Point(0, 0);
+            this.ucUserCategory1.Name = "ucUserCategory1";
+            this.ucUserCategory1.Size = new System.Drawing.Size(845, 543);
+            this.ucUserCategory1.TabIndex = 23;
+            this.ucUserCategory1.Visible = false;
+            // 
+            // picFind
+            // 
+            this.picFind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picFind.Image = global::LibrarySimulation.Properties.Resources.find;
+            this.picFind.Location = new System.Drawing.Point(363, 393);
+            this.picFind.Name = "picFind";
+            this.picFind.Size = new System.Drawing.Size(96, 96);
+            this.picFind.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFind.TabIndex = 22;
+            this.picFind.TabStop = false;
+            this.picFind.Click += new System.EventHandler(this.picFind_Click);
             // 
             // picDiscard
             // 
@@ -145,6 +170,8 @@ namespace LibrarySimulation
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.Controls.Add(this.ucUserCategory1);
+            this.Controls.Add(this.picFind);
             this.Controls.Add(this.picDiscard);
             this.Controls.Add(this.picSave);
             this.Controls.Add(this.picDelete);
@@ -156,6 +183,7 @@ namespace LibrarySimulation
             this.Name = "UcCategory";
             this.Size = new System.Drawing.Size(845, 543);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoryList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDiscard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDelete)).EndInit();
@@ -176,5 +204,7 @@ namespace LibrarySimulation
         private System.Windows.Forms.PictureBox picDelete;
         private System.Windows.Forms.PictureBox picSave;
         private System.Windows.Forms.PictureBox picDiscard;
+        private System.Windows.Forms.PictureBox picFind;
+        private Screens.UcBookCategory ucUserCategory1;
     }
 }

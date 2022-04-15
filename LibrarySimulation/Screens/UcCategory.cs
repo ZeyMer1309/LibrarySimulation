@@ -16,6 +16,7 @@ namespace LibrarySimulation
     public partial class UcCategory : UserControl
     {
         BookDbContext bookDbContext;
+        int lastId;
         public UcCategory()
         {
             InitializeComponent();
@@ -29,14 +30,29 @@ namespace LibrarySimulation
             picAdd.Image = Properties.Resources.add;
             picAdd.Enabled = true;
 
+            picDelete.Image = Properties.Resources.delete;
+            picDelete.Enabled = true;
 
+            if (dgvCategoryList.RowCount != 0)
+            {
+                picEdit.Enabled = true;
+                picEdit.Image = Properties.Resources.edit;
 
-            picDelete.Image = Properties.Resources.deleteGrey;
-            picDelete.Enabled = false;
-            
-            
+                picFind.Enabled = true;
+                picFind.Image = Properties.Resources.find;
+            }
+            else
+            {
+                picEdit.Enabled = false;
+                picEdit.Image = Properties.Resources.editGrey;
+
+                picFind.Enabled = false;
+                picFind.Image = Properties.Resources.findGrey;
+            }
 
             dgvCategoryList.Enabled = true;
+
+            ucUserCategory1.Visible = false;
 
             picSave.Visible = false;
             picDiscard.Visible = false;
@@ -63,22 +79,38 @@ namespace LibrarySimulation
             RefreshData();
         }
 
+        private bool LastIdValidation()
+        {
+            bool result = true;
+
+            if (lastId != Convert.ToInt32(dgvCategoryList.SelectedRows[0].Cells[0].Value))
+                result = false;
+
+            return result;
+        }
+
         private void picEdit_Click(object sender, EventArgs e)
         {
-            picEdit.Visible = false;
+            if (lastId != Convert.ToInt32(dgvCategoryList.SelectedRows[0].Cells[0].Value))
+            {
+                picEdit.Visible = false;
 
-            picAdd.Image = Properties.Resources.addGrey;
-            picDelete.Image = Properties.Resources.deleteGrey;
+                picAdd.Image = Properties.Resources.addGrey;
+                picDelete.Image = Properties.Resources.deleteGrey;
 
-            picAdd.Enabled = false;
-            picDelete.Enabled = false;
+                picAdd.Enabled = false;
+                picDelete.Enabled = false;
 
-            picSave.Visible = true;
-            picDiscard.Visible = true;
+                picSave.Visible = true;
+                picDiscard.Visible = true;
 
-            dgvCategoryList.Enabled = false;
+                dgvCategoryList.Enabled = false;
 
-            tbxCategory.Text = dgvCategoryList.SelectedRows[0].Cells[1].Value.ToString();
+                tbxCategory.Text = dgvCategoryList.SelectedRows[0].Cells[1].Value.ToString();
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir kategori üzerinde değişiklik işlemi talep edin.");
+
         }
 
         private void picDiscard_Click(object sender, EventArgs e)
@@ -107,26 +139,36 @@ namespace LibrarySimulation
             bookDbContext.Entry(updatingCategory).State = EntityState.Modified;
             bookDbContext.SaveChanges();
 
+            lastId = Convert.ToInt32(dgvCategoryList.SelectedRows[0].Cells[0].Value);
+
             RefreshData();
         }
 
         private void picDelete_Click(object sender, EventArgs e)
         {
-            int currentId = Convert.ToInt32(dgvCategoryList.SelectedRows[0].Cells[0].Value);
-
-            Category updatingCategory = new Category
+            if (LastIdValidation())
             {
-                Id = currentId,
-                Name = tbxCategory.Text
-            };
+                Category deletingCategory = new Category
+                {
+                    Id = Convert.ToInt32(dgvCategoryList.SelectedRows[0].Cells[0].Value)
+                };
 
-            if (bookDbContext.Entry(updatingCategory).State == EntityState.Detached)
-                bookDbContext.Categories.Attach(updatingCategory);
+                if (bookDbContext.Entry(deletingCategory).State == EntityState.Detached)
+                    bookDbContext.Categories.Attach(deletingCategory);
 
-            bookDbContext.Categories.Remove(updatingCategory);
-            bookDbContext.SaveChanges();
+                bookDbContext.Categories.Remove(deletingCategory);
+                bookDbContext.SaveChanges();
 
-            RefreshData();
+                RefreshData();
+            }
+            else
+                MessageBox.Show("Son değişiklik az önce yapıldı. Lütfen farklı bir kitap üzerinde değişiklik işlemi talep edin.");
+
+        }
+
+        private void picFind_Click(object sender, EventArgs e)
+        {
+            ucUserCategory1.Visible = true;
         }
     }
 }

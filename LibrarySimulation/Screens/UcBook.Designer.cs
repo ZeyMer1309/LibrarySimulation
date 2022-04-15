@@ -85,7 +85,6 @@ namespace LibrarySimulation
             // 
             // dgvBookList
             // 
-            this.dgvBookList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBookList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBookList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookList.GridColor = System.Drawing.Color.White;
@@ -144,6 +143,7 @@ namespace LibrarySimulation
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picDelete.TabIndex = 14;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picEdit
             // 

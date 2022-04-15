@@ -135,6 +135,7 @@ namespace LibrarySimulation
             this.picDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picDelete.TabIndex = 17;
             this.picDelete.TabStop = false;
+            this.picDelete.Click += new System.EventHandler(this.picDelete_Click);
             // 
             // picEdit
             // 

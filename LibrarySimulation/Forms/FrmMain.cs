@@ -132,6 +132,8 @@ namespace LibrarySimulation
             button.ForeColor = Color.Gold;
             Coloring(button, Color.Gold);
 
+            BookSQL.BookValidation();
+
             switch (button.Name)
             {
                 case "btnInfo":
