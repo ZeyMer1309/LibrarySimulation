@@ -168,7 +168,9 @@ namespace LibrarySimulation
 
         private void picFind_Click(object sender, EventArgs e)
         {
+            ucUserCategory1.rdf = RefreshData;
             ucUserCategory1.Visible = true;
+
         }
     }
 }

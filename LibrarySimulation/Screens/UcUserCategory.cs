@@ -12,9 +12,18 @@ namespace LibrarySimulation.Screens
 {
     public partial class UcBookCategory : UserControl
     {
+        public delegate void RefreshDataFunction();
+        public RefreshDataFunction rdf;
+
         public UcBookCategory()
         {
             InitializeComponent();
+        }
+
+        private void picBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            rdf();
         }
     }
 }
