@@ -25,3 +25,7 @@ Kategoriler Ekranı
 Kullanıcılar Ekranı
 
 ![plot](./images/usersPage.png)
+
+Kitap Al/Ver Ekranı
+
+![plot](./images/takeBook.png)

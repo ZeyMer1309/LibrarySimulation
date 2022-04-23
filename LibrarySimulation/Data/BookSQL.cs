@@ -23,7 +23,7 @@ namespace LibrarySimulation.Data
             ON Books.Id != UsersBooks.BookId
             */
 
-            System.Windows.Forms.MessageBox.Show("BookSQL içindeki BookValidation fonksiyonu yazılmadı");
+            //System.Windows.Forms.MessageBox.Show("BookSQL içindeki BookValidation fonksiyonu yazılmadı");
         }
     }
 }

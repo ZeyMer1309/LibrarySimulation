@@ -240,11 +240,11 @@
     <Compile Include="Screens\UcTakeBook.Designer.cs">
       <DependentUpon>UcTakeBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\UcUserCategory.cs">
+    <Compile Include="Screens\UcBookCategory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Screens\UcUserCategory.Designer.cs">
-      <DependentUpon>UcUserCategory.cs</DependentUpon>
+    <Compile Include="Screens\UcBookCategory.Designer.cs">
+      <DependentUpon>UcBookCategory.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -277,8 +277,8 @@
     <EmbeddedResource Include="Screens\UcTakeBook.resx">
       <DependentUpon>UcTakeBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\UcUserCategory.resx">
-      <DependentUpon>UcUserCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\UcBookCategory.resx">
+      <DependentUpon>UcBookCategory.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

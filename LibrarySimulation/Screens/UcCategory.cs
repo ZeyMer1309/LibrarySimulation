@@ -170,7 +170,7 @@ namespace LibrarySimulation
         {
             ucUserCategory1.rdf = RefreshData;
             ucUserCategory1.Visible = true;
-
+            ucUserCategory1.RefreshData();
         }
     }
 }

@@ -42,10 +42,12 @@ namespace LibrarySimulation.Screens
             // 
             // lbxCategoryTypes
             // 
+            this.lbxCategoryTypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxCategoryTypes.FormattingEnabled = true;
+            this.lbxCategoryTypes.ItemHeight = 16;
             this.lbxCategoryTypes.Location = new System.Drawing.Point(27, 31);
             this.lbxCategoryTypes.Name = "lbxCategoryTypes";
-            this.lbxCategoryTypes.Size = new System.Drawing.Size(201, 225);
+            this.lbxCategoryTypes.Size = new System.Drawing.Size(201, 228);
             this.lbxCategoryTypes.TabIndex = 0;
             // 
             // dgvBooksByCategories
@@ -55,23 +57,27 @@ namespace LibrarySimulation.Screens
             this.dgvBooksByCategories.Location = new System.Drawing.Point(275, 31);
             this.dgvBooksByCategories.Name = "dgvBooksByCategories";
             this.dgvBooksByCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBooksByCategories.Size = new System.Drawing.Size(532, 225);
+            this.dgvBooksByCategories.Size = new System.Drawing.Size(532, 228);
             this.dgvBooksByCategories.TabIndex = 1;
             // 
             // lbxBooks
             // 
+            this.lbxBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxBooks.FormattingEnabled = true;
+            this.lbxBooks.ItemHeight = 16;
             this.lbxBooks.Location = new System.Drawing.Point(27, 314);
             this.lbxBooks.Name = "lbxBooks";
-            this.lbxBooks.Size = new System.Drawing.Size(201, 186);
+            this.lbxBooks.Size = new System.Drawing.Size(201, 196);
             this.lbxBooks.TabIndex = 2;
             // 
             // lbxCategories
             // 
+            this.lbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxCategories.FormattingEnabled = true;
+            this.lbxCategories.ItemHeight = 16;
             this.lbxCategories.Location = new System.Drawing.Point(275, 314);
             this.lbxCategories.Name = "lbxCategories";
-            this.lbxCategories.Size = new System.Drawing.Size(201, 186);
+            this.lbxCategories.Size = new System.Drawing.Size(201, 196);
             this.lbxCategories.TabIndex = 3;
             // 
             // picBack

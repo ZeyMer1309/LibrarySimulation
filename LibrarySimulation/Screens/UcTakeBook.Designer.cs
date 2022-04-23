@@ -62,20 +62,23 @@ namespace LibrarySimulation
             // 
             // dgvBooksByUsers
             // 
+            this.dgvBooksByUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBooksByUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvBooksByUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBooksByUsers.Location = new System.Drawing.Point(275, 31);
             this.dgvBooksByUsers.Name = "dgvBooksByUsers";
             this.dgvBooksByUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBooksByUsers.Size = new System.Drawing.Size(532, 290);
+            this.dgvBooksByUsers.Size = new System.Drawing.Size(532, 292);
             this.dgvBooksByUsers.TabIndex = 18;
             // 
             // lbxUsers
             // 
+            this.lbxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbxUsers.FormattingEnabled = true;
+            this.lbxUsers.ItemHeight = 16;
             this.lbxUsers.Location = new System.Drawing.Point(27, 31);
             this.lbxUsers.Name = "lbxUsers";
-            this.lbxUsers.Size = new System.Drawing.Size(201, 290);
+            this.lbxUsers.Size = new System.Drawing.Size(201, 292);
             this.lbxUsers.TabIndex = 17;
             // 
             // UcTakeBook

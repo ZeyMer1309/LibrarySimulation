@@ -58,6 +58,8 @@ namespace LibrarySimulation
 
         private void RefreshData()
         {
+            bookDbContext.SaveChanges();
+
             var authors = bookDbContext.Authors.Select(a => new
             {
                 ID = a.Id,
@@ -83,7 +85,7 @@ namespace LibrarySimulation
         {
             bool result = true;
 
-            if (lastId != Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value))
+            if (lastId == Convert.ToInt32(dgvAuthorList.SelectedRows[0].Cells[0].Value))
                 result = false;
 
             return result;

@@ -158,7 +158,7 @@ namespace LibrarySimulation
                     break;
                 case "btnTakeBook":
                     ucTakeBook.BringToFront();
-
+                    ucTakeBook.RefreshData();
                     break;
             }
         }
