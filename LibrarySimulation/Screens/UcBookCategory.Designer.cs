@@ -32,9 +32,9 @@ namespace LibrarySimulation.Screens
             this.lbxCategoryTypes = new System.Windows.Forms.ListBox();
             this.dgvBooksByCategories = new System.Windows.Forms.DataGridView();
             this.lbxBooks = new System.Windows.Forms.ListBox();
-            this.lbxCategories = new System.Windows.Forms.ListBox();
             this.picBack = new System.Windows.Forms.PictureBox();
             this.picEdit = new System.Windows.Forms.PictureBox();
+            this.lbxCategories = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooksByCategories)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEdit)).BeginInit();
@@ -70,16 +70,6 @@ namespace LibrarySimulation.Screens
             this.lbxBooks.Size = new System.Drawing.Size(201, 196);
             this.lbxBooks.TabIndex = 2;
             // 
-            // lbxCategories
-            // 
-            this.lbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbxCategories.FormattingEnabled = true;
-            this.lbxCategories.ItemHeight = 16;
-            this.lbxCategories.Location = new System.Drawing.Point(275, 314);
-            this.lbxCategories.Name = "lbxCategories";
-            this.lbxCategories.Size = new System.Drawing.Size(201, 196);
-            this.lbxCategories.TabIndex = 3;
-            // 
             // picBack
             // 
             this.picBack.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -102,6 +92,18 @@ namespace LibrarySimulation.Screens
             this.picEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picEdit.TabIndex = 15;
             this.picEdit.TabStop = false;
+            this.picEdit.Click += new System.EventHandler(this.picEdit_Click);
+            // 
+            // lbxCategories
+            // 
+            this.lbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbxCategories.FormattingEnabled = true;
+            this.lbxCategories.ItemHeight = 16;
+            this.lbxCategories.Location = new System.Drawing.Point(275, 314);
+            this.lbxCategories.Name = "lbxCategories";
+            this.lbxCategories.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbxCategories.Size = new System.Drawing.Size(201, 196);
+            this.lbxCategories.TabIndex = 3;
             // 
             // UcBookCategory
             // 
@@ -128,8 +130,8 @@ namespace LibrarySimulation.Screens
         public System.Windows.Forms.ListBox lbxCategoryTypes;
         public System.Windows.Forms.DataGridView dgvBooksByCategories;
         public System.Windows.Forms.ListBox lbxBooks;
-        public System.Windows.Forms.ListBox lbxCategories;
         public System.Windows.Forms.PictureBox picBack;
         public System.Windows.Forms.PictureBox picEdit;
+        public System.Windows.Forms.ListBox lbxCategories;
     }
 }

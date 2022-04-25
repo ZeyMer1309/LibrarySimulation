@@ -1,4 +1,5 @@
 ﻿using LibrarySimulation.Data;
+using LibrarySimulation.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace LibrarySimulation.Screens
         public delegate void RefreshDataFunction();
         public RefreshDataFunction rdf;
         BookDbContext bookDbContext;
+        int lastId;
 
         public UcBookCategory()
         {
@@ -36,11 +38,28 @@ namespace LibrarySimulation.Screens
             {
                 ID = c.Id,
                 Ctg = c.Name
-            }).ToList();
+            });
 
-            lbxCategoryTypes.DataSource = categories;
+            lbxCategoryTypes.DataSource = categories.ToList();
             lbxCategoryTypes.DisplayMember = "Ctg";
             lbxCategoryTypes.ValueMember = "ID";
+
+            lbxCategories.DataSource = categories.ToList();
+            lbxCategories.DisplayMember = "Ctg";
+            lbxCategories.ValueMember = "ID";
+
+            var books = bookDbContext.Books.Select(b => new
+            {
+                ID = b.Id,
+                Book = b.Name
+            }).ToList();
+
+            lbxBooks.DataSource = books;
+            lbxBooks.DisplayMember = "Book";
+            lbxBooks.ValueMember = "ID";
+
+            lbxBooks.SelectedIndexChanged += lbxBooks_SelectedIndexChanged;
+            getCategoriesByBookId(Convert.ToInt32(lbxBooks.SelectedValue));
 
             lbxCategoryTypes.SelectedIndexChanged += lbxCategoryTypes_SelectedIndexChanged;
             getBooksByCategoryId(Convert.ToInt32(lbxCategoryTypes.SelectedValue));
@@ -49,6 +68,11 @@ namespace LibrarySimulation.Screens
         private void lbxCategoryTypes_SelectedIndexChanged(object sender, EventArgs e)
         {
             getBooksByCategoryId(Convert.ToInt32(lbxCategoryTypes.SelectedValue));
+        }
+
+        private void lbxBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            getCategoriesByBookId(Convert.ToInt32(lbxBooks.SelectedValue));
         }
 
         public void getBooksByCategoryId(int Id)
@@ -68,6 +92,28 @@ namespace LibrarySimulation.Screens
             var filteredData = data.Where(d => d.BookCategory.Any(bc => bc.CategoryId == Id));
 
             dgvBooksByCategories.DataSource = filteredData.Select(x => new { x.BookId, x.BookName, x.BookAuthor }).ToList();
+        }
+
+        public void getCategoriesByBookId(int id)
+        {
+            BookSQL bookSQL = new BookSQL();
+            Dictionary<int, string> categories = bookSQL.getCategoriesByBookId(id);
+            lbxCategories.SelectedIndex = -1;
+
+            foreach (var category in categories)
+                lbxCategories.SetSelectedWithValue(category.Key, true);
+        }
+
+        private void picEdit_Click(object sender, EventArgs e)
+        {
+            List<int> selectedCategories = new List<int>();
+            foreach (dynamic item in lbxCategories.SelectedItems)
+                selectedCategories.Add(item.ID);
+
+            new BookSQL().DeleteBookCategoryDetails((int)lbxBooks.SelectedValue);
+            new BookSQL().AddBookCategoryDetails((int)lbxBooks.SelectedValue, selectedCategories);
+
+            RefreshData();
         }
     }
 }

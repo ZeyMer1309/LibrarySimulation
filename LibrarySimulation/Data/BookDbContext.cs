@@ -114,7 +114,7 @@ namespace LibrarySimulation.Data
 
             modelBuilder.Entity<UsersBooks>().HasData(new UsersBooks { UserId = 1, BookId = 1, BorrowDate = new DateTime(2022, 03, 16) });
             modelBuilder.Entity<UsersBooks>().HasData(new UsersBooks { UserId = 1, BookId = 7, BorrowDate = new DateTime(2022, 03, 16) });
-            modelBuilder.Entity<UsersBooks>().HasData(new UsersBooks { UserId = 2, BookId = 1, BorrowDate = new DateTime(2022, 04, 16) });
+            modelBuilder.Entity<UsersBooks>().HasData(new UsersBooks { UserId = 2, BookId = 3, BorrowDate = new DateTime(2022, 04, 16) });
             modelBuilder.Entity<UsersBooks>().HasData(new UsersBooks { UserId = 2, BookId = 2, BorrowDate = new DateTime(2022, 04, 16) });
         }
     }

@@ -23,6 +23,6 @@ namespace LibrarySimulation.Models
 
         public ICollection<UsersBooks> Users { get; set; }
 
-        public ICollection<CategoriesBooks> Categories { get; set; }
+        public ICollection<CategoriesBooks> Categories { get; set; } = new HashSet<CategoriesBooks>();
     }
 }

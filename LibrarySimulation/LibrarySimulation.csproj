@@ -190,6 +190,7 @@
   <ItemGroup>
     <Compile Include="Data\BookDbContext.cs" />
     <Compile Include="Data\BookSQL.cs" />
+    <Compile Include="Data\ExtensionMethods.cs" />
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
