@@ -22,6 +22,10 @@ Kategoriler Ekranı
 
 ![plot](./images/categoriesPage.png)
 
+Kategori Detayları Ekranı
+
+![plot](./images/categoryDetail.png)
+
 Kullanıcılar Ekranı
 
 ![plot](./images/usersPage.png)
@@ -29,3 +33,6 @@ Kullanıcılar Ekranı
 Kitap Al/Ver Ekranı
 
 ![plot](./images/takeBook.png)
+
+
+Form design ekranının açılmama sebebini uzun uzadıya araştırmam sonucu, bu hatanın derleyici kaynaklı olduğunu öğrendim. Derleme sırasında herhangi bir hata ile karşılaşılmamaktadır.

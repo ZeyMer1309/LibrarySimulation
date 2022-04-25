@@ -48,6 +48,7 @@ namespace LibrarySimulation
             this.picGive.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picGive.TabIndex = 22;
             this.picGive.TabStop = false;
+            this.picGive.Click += new System.EventHandler(this.picGive_Click);
             // 
             // picTake
             // 
@@ -59,6 +60,7 @@ namespace LibrarySimulation
             this.picTake.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picTake.TabIndex = 21;
             this.picTake.TabStop = false;
+            this.picTake.Click += new System.EventHandler(this.picTake_Click);
             // 
             // dgvBooksByUsers
             // 

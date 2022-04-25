@@ -15,11 +15,12 @@ namespace LibrarySimulation
     public partial class UcTakeBook : UserControl
     {
         BookDbContext bookDbContext;
-
+        BookSQL bookSQL;
         public UcTakeBook()
         {
             InitializeComponent();
             bookDbContext = new BookDbContext();
+            bookSQL = new BookSQL();
         }
 
         public void RefreshData()
@@ -67,6 +68,35 @@ namespace LibrarySimulation
 
             foreach (DataGridViewRow row in dgvBooksByUsers.Rows)
                 row.Selected = filteredData.Select(x => x.BookId).Contains(Convert.ToInt32(row.Cells[0].Value));
+        }
+
+        private void picTake_Click(object sender, EventArgs e)
+        {
+            int userId = (int)lbxUsers.SelectedValue;
+            List<int> bookIds = new List<int>();
+            for (int i = 0; i < dgvBooksByUsers.SelectedRows.Count; i++)
+                if (Convert.ToDateTime(dgvBooksByUsers.SelectedRows[i].Cells[3].Value) < new DateTime(2000, 1, 1))
+                    bookIds.Add(Convert.ToInt32(dgvBooksByUsers.SelectedRows[i].Cells[0].Value));
+
+            bookSQL.TakeBook(userId, bookIds);
+
+            int tempSelection = lbxUsers.SelectedIndex;
+            RefreshData();
+            lbxUsers.SelectedIndex = tempSelection;
+        }
+
+        private void picGive_Click(object sender, EventArgs e)
+        {
+            int userId = (int)lbxUsers.SelectedValue;
+            List<int> bookIds = new List<int>();
+            for (int i = 0; i < dgvBooksByUsers.SelectedRows.Count; i++)
+                bookIds.Add(Convert.ToInt32(dgvBooksByUsers.SelectedRows[i].Cells[0].Value));
+
+            bookSQL.GiveBook(userId, bookIds);
+
+            int tempSelection = lbxUsers.SelectedIndex;
+            RefreshData();
+            lbxUsers.SelectedIndex = tempSelection;
         }
     }
 }

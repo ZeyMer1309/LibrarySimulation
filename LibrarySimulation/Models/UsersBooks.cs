@@ -14,6 +14,5 @@ namespace LibrarySimulation.Models
         public Book Book { get; set; }
 
         public DateTime BorrowDate { get; set; }
-        public DateTime? ReturnDate { get; set; }
     }
 }
