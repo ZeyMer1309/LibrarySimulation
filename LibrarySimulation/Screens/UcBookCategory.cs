@@ -114,6 +114,18 @@ namespace LibrarySimulation.Screens
             new BookSQL().AddBookCategoryDetails((int)lbxBooks.SelectedValue, selectedCategories);
 
             RefreshData();
+
+
+            //NOT: EF ile veritabanına ekleme yapacak kodu yazdım ama önceden kayıt varsa eklenemiyordu bu yüzden SQL ile yazdım ekleme kodlarını ekledim aşağıya
+
+            //Book book = bookDbContext.Books.First(b => b.Id == (int)lbxBooks.SelectedValue);
+
+            //selectedCategories.ForEach(sc => book.Categories.Add(new CategoriesBooks{
+            //    BookId = book.Id,
+            //    CategoryId = sc
+            //}));
+
+            //bookDbContext.SaveChanges();
         }
     }
 }
